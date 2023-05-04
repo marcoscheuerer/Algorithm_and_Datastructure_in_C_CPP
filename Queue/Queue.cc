@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 
 /**
  * @brief Class for the datastructure queue - FIFO
@@ -7,27 +8,27 @@
 class Queue
 {
 private:
-    int size;
-    int front;
-    int rear;
-    int *Q;
+    std::int32_t size;
+    std::int32_t front;
+    std::int32_t rear;
+    std::int32_t *Q;
 
 public:
     Queue()
     {
         front=rear=-1;
         size=10;
-        Q=new int[size];
+        Q=new std::int32_t[size];
     }
 
-    Queue(int size)
+    Queue(std::int32_t size)
     {
         front=rear=-1;
         this->size = size;
-        Q = new int[this->size];
+        Q = new std::int32_t[this->size];
     }
 
-    void enqueue(int x);
+    void enqueue(std::int32_t x);
     int dequeue();
     void display();
 };
@@ -78,7 +79,7 @@ int Queue::dequeue()
  */
 void Queue::display()
 {
-    for (int i = front + 1; i <= rear; i++)
+    for (auto i = front + 1; i <= rear; i++)
     {
         std::cout << Q[i] << " ";
     }
